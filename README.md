@@ -1,14 +1,15 @@
-# Simple authentication system 
+# Blog website Project 
 
-*This is a project for CS353C Software Design module, which will keep updating during the whold semester 
+*This is a project for CS353C Software Design module, which will keep updating during the whole semester 
 
-This is a simple site authentication that made from scratch in Node.js, Express and Firebase. The aim is to check if the user data existed in the Firebase when the authenticated request sent to the sever. If the user isn't logged in, then redirect them to the login form with notiication shown the brower. The other feature - user registration or sign up will save the validated form into the database in Firebase and direct user to new page after registration. The system is running on virtual server hosting by Digitalocean.com.
+This is a simple blog built on a local server and run on Node.js for the server side language. Express is required to handle the requests from browsers, Google firebase is used for the real-time database and authentication system, jQuery library is embedded to process the browser's behaviour, templates and Ajax function.
+
+The blocks template from the path "/" is loaded from the server and is updated based on the user's information saved in the real-time database on firebase. The authentication system listens for the login status for each page and decides to display different content based on user status.
 
 Development environment:
-1. JavaScript
-2. Node.js
-3. Express (framwork)
-4. Firebase (database)
+1. JavaScript (jQuery libray)
+2. Node.js (Express)
+3. Firebase (Real-time Database, Authentication)
 5. HTML, CSS 
 6. Git
 7. Linux ubuntu (VPN supported by Digitalocean.com)
