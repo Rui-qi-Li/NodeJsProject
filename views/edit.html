@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+
+  <head lang="en">
+      <meta charset="UTF-8">
+    <title>Cosmetics</title>
+     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,700|Varela+Round" rel="stylesheet">
+     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"> 
+     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="/style_edit.css">
+	<link rel="stylesheet" type="text/css" href="/style_menu.css">
+  </head>
+
+  <body>
+  	<!--nav menu-->
+    <nav class = "menu">
+
+			<div class = 'object'>
+				<h2 style="color:red">logo</h2>
+			</div>
+   			<!--3-->   	
+        <a class="navbar" href="/login">LOGIN</a>	
+        	<!--4-->
+        <a class="navbar" href="/signup">REGISTER</a>
+        <a class="navbar" href="/">HOME</a>
+				<a style="color:red;font-weight:600;" class="navbar" href="/edit">NEW +</a>
+				<!--2-->
+				<div class="dropdown"> 
+						<div class="dropbtn" href="#profile">PROFILE</div>
+						<div class= "dropdown-content">
+							<a href="">Profile</a>
+							<a href="">Setting</a>
+							<a href="">Logout</a>
+						</div> 
+				</div>
+    </nav>
+
+    <!--Nav menu end-->
+
+    <!--Upload form-->
+    <div class = "container">
+    	<form>
+    	<div class = "row-title">
+    		<h2>Let's add your new project HERE !</h2>
+    		<p>you will never forget to use it utill last minutes!</p>
+    	</div>
+    	<div class = "row">
+    		<div class = "col-md-3">
+    			<p>Add the photo</p>
+    		</div>
+    		<div class = "col-md-6 col-md-offset-1"">
+				<label for="upload-photo" class = "photo-label">Upload !</label>
+				<div class="preview">
+					<img src="upload-default.png" id="preview-img">
+				</div>
+	    		<input type = "file" size = "20" id="upload-photo">
+    		</div>
+    	</div>
+    	<div class = "row">
+    		<div class = "col-md-3">
+    			<p>Product name</p>
+    		</div>
+    		<div class = "col-md-6 col-md-offset-1">
+    			Name: <input type="text" name="productName" id="productName">
+    		</div>
+    	</div>
+    	<div class = "row">
+    		<div class = "col-md-3">
+    			<p>Price you cost</p>
+    		</div>
+    		<div class = "col-md-6 col-md-offset-1">
+    			Euro: <input type="text" name="price" id="price">
+    		</div>
+    	</div>
+
+    	<div class = "row">
+    		<div class = "col-md-3">
+    			<p>Category</p>
+    		</div>
+    		<div class = "col-md-6 col-md-offset-1"">
+    			Selection: <select id="category">
+				  <option>Makeup</option>
+				  <option>Cleanser</option>
+				  <option>Face Cream</option>
+				  <option>Eye Treatment</option>
+				  <option>Masks</option>
+				  <option>Moisturizer</option>
+				  <option>Others</option>
+				</select>
+    		</div>
+    	</div>
+
+    	<div class = "row">
+    		<div class = "col-md-3">
+    			 <p>Buy date</p>
+    		</div>
+    		<div class = "col-md-6 col-md-offset-1"">
+    			 <div class = "date-area">
+			    Start: <input type="text" name="buy-date" id = "buy-date" placeholder="DD/MM/YYYY">
+				</div>
+    		</div>
+    	</div>
+
+    	<div class = "row">
+    		<div class = "col-md-3">
+    			 <p>Expire date</p>
+    		</div>
+    		<div class = "col-md-6 col-md-offset-1"">
+    			 <div class = "date-area">
+			    Expire: <input type="text" name="expire-date" id = "expire-date" placeholder="DD/MM/YYYY">
+				</div>
+    		</div>
+    	</div>
+    	
+    	<div class = "row">
+    		<div class = "col-md-3">
+    			 <p>Shopping place</p>
+    		</div>
+    		<div class = "col-md-6 col-md-offset-1"">
+			    Where: <input type="text" name="shoppingplace" id="shoppingPlace">
+    		</div>
+    	</div>
+    	
+    	<div class = "row">
+    		<div class = "col-md-3">
+    			 <p>Set the notification?</p>
+    		</div>
+    		<div class = "col-md-6 col-md-offset-1"">
+    			<label for= "switch" class=" switch-label glyphicon glyphicon-bell"></label>
+    			<select id ="notification">
+    				<option>Expire before 1 month</option>
+    				<option>Expire before 1 week</option>
+    				<option>Expire before 2 weeks</option>
+    				<option>Expire before 3 weeks</option>
+    			</select>
+    		
+		    	<input type="checkbox" id="switch">
+    		</div>
+    	</div>
+    	<div class = "row">
+    		<div class = "col-md-3">
+    			<p>Add discription</p>
+    		</div>
+    		<div class = "col-md-6 col-md-offset-1"">
+			    <textarea name="textarea" placeholder="Type something here..." 
+			    id="description-text" cols="30" rows="10"></textarea>
+    		</div>
+    	</div>
+    	<div class = "row">
+    		<button id="save-button">Save</button>	
+    	</div>
+    	</form>
+    </div>
+  
+  
+   
+	</body>
+	<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src = "/main.js"></script>
+	<script type="text/javascript" src = "/main_product.js"></script>
+  
+  <script>
+  	var main = function(){
+	  //menu bar control
+      $('.dropdown-content').hide();
+      $('.dropbtn').on('mouseover',function(){
+        $(this).next().slideToggle('fast');
+      });
+      $('.dropdown-content').on('mouseleave',function(){
+        $(this).hide('fast');
+      });
+
+      //preview control
+    $('#upload-photo').change(function(e){
+    	e.preventDefault();
+    	$('.photo-label').text($(this)[0].files[0].name);//get the image name without fakepath
+    	var reader = new FileReader();
+    	reader.onload = function(e){
+    		$('#preview-img').attr('src',e.target.result);
+    	};//do not need to empty
+    	reader.readAsDataURL($(this)[0].files[0]);
+    });
+
+	//date picker
+	var buy_date;
+	var expire_date;
+	$('#buy-date').datepicker();
+	$('#buy-date').on('change',function(){
+		buy_date =  $(this).val();
+	});
+	$('#expire-date').datepicker();
+	$('#expire-date').on('change',function(){
+		expire_date = $(this).val();
+	});
+
+	};//main
+
+	$(document).ready(main);
+  </script>
+</html>

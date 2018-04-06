@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+  }
+  @font-face {
+      font-family: Poppins;
+      src: url("https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/project-ii/Resources/Poppins/Poppins-Regular.ttf");
+  }
+  body {
+    background-image: url("http://www.wyzu.cn/uploadfile/2013/0319/20130319010102143.jpg");
+    background-attachment: fixed;
+    
+    background-color: #FFF;
+    margin: 0 auto;
+  }
+  
+  .signup {
+    text-align:center;
+    background-color:white;
+    font-size: 15px;
+    font-family: Poppins;
+    color:lightgrey;
+    align-self:center;
+    margin: 0 auto;
+    position: absolute;
+    top: 150px;
+    left: 40%;
+    width: 300px;
+    height: 200px;
+    box-shadow:0 0 10px rgba(0,0,0,0.3);
+  }
+  .signuph{
+    color:grey;
+  }
+  button{
+    color:lightgrey;
+    background-color:white;
+    border:1px solid lightgrey;
+    border-radius:3px;
+    padding:0 22px;
+    display:inline-block;
+    transition-duration:0.4s;
+  }
+  button:hover{
+    background-color:rgb(255,168,148);
+    color:white;
+  }

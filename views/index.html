@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"> 
+  <link rel='stylesheet' href='style_home2.css'/>
+  <link rel='stylesheet' href='style_menu.css'/>
+  </head>
+  <body>
+     <!--nav menu-->
+    <nav class = "menu">
+
+      <div class = 'object'>
+        <h2 style="color:red">logo</h2>
+      </div>
+        <!--3-->    
+        <a class="navbar" href="/login">LOGIN</a> 
+          <!--4-->
+        <a class="navbar" href="/signup">REGISTER</a>
+        <!--2-->
+        <a class="navbar" href="/">HOME</a>
+        <a style="color:red;font-weight:600;" class="navbar" href="/edit">NEW +</a>
+        <div class="dropdown"> 
+            <div class="dropbtn" href="#profile">PROFILE</div>
+            <div class= "dropdown-content">
+              <a href="">Profile</a>
+              <a href="">Setting</a>
+              <a href="">Logout</a>
+            </div> 
+        </div>
+    </nav>
+
+    <!--Nav menu end-->
+
+    <div class="main">
+      <!--container is the bootstrap class name-->
+      <div class="container">
+        <!--row is the bootstrap class name, mean a row-->
+       
+      </div><!--end container-->
+    </div><!--end main-->
+    
+   <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script> 
+   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+   <script type="text/javascript" src = "/main.js"></script>
+   <script type="text/javascript" src = "/main_product.js"></script>
+    <script>
+      /* re-useable objects using constructor function (class)
+      function var confirmation = {
+        init: function(){
+          $('.confirmation').on('click','button',this.loadConfrim);
+          $('.confirmation').on('click','.view-pass',this.showBoarding);
+        },
+        loadConfirm:function(){
+          $.ajax('...htm/',{});
+        },
+        showBoarding:function(event){}
+      };
+      */
+      /*re-useable objects using constructor function (class)
+      function Conrimation(el){
+        this.el = el;//add element variable;
+        this.ticket = this.el.find('.ticket');
+        var comfirmation = this; //set "this" refer to function's 
+        this. loadConfirm:function(){
+          $.ajax('...htm/',{
+            timeout:3000,//set timeout
+            context:confirmation; //now "this" refer to confirmation
+            success:function(response){
+              this.ticket.html(response).slideDown();
+            }
+          });
+        };
+        this.showBoarding = funciton(){
+          event.preventDefault();
+          $(this).hide();
+          confirmation.el.find('.boarding-pass').show();
+        };
+        this.el.on('click','button',this.loadConfrim);
+        this.el.on('click','.view-pass',this.showBoarding);
+      }
+      */
+      var main = function() {
+
+      //load the database
+      showProduct();
+
+      $('.more-btn').on('click',event =>{
+        event.preventDefault();
+        $(event.currentTarget).siblings().slideToggle('fast');
+      })
+
+      function slideMenu(event){
+        event.preventDefault();
+        $(this).next().next().slideToggle();
+      };
+      
+      $('.description').on('mouseover',slideMenu);
+      $('.buyinfo').on('mouseover',slideMenu);
+
+      $('.notification').on('click',function(event){
+        event.preventDefault();
+        $(this).toggleClass('active');
+        $(this).animate({'top':'-5px'},'fast').animate({'top':'0px'},'fast');
+      })
+
+      //date control
+      var day = +$('.expireDate');
+      
+      //menu bar control
+      $('.dropdown-content').hide();
+      $('.dropbtn').on('mouseover',function(){
+        $(this).next().slideToggle('fast');
+      });
+      $('.dropdown-content').on('mouseleave',function(){
+        $(this).slideUp('fast');
+      });
+      
+
+      };
+
+      $(document).ready(main);
+    </script>
+  </body>
+</html>

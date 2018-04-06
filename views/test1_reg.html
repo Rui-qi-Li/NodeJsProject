@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<script>
+		function validate_r(){
+			var x =document.getElementsByName('user')[0].value;
+			if(x == ""){
+				document.getElementById("name_demo").innerHTML = "Please enter a name";
+				return false;//prevent from sending the form
+			}
+		}
+	</script>
+</head>
+<body>
+<h1>Wellcome!</h1>
+<form method="post" onsubmit="return validate_r()">
+    <input type="text" name="user" size="40">
+    <p id="name_demo"></p>
+    <input type="password" name="password" size="40"><br>
+    <button type="submit" id="login">Signup</button>
+    </form>
+</body>
+</html>

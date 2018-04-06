@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>simple login</title>
+	<style>
+		* {
+		margin: 0;
+		}
+		.container {
+		  max-width: 450px;
+		  margin: 0 auto; }
+		 nav {
+		 	background-color: #303030;
+  			color: #EFEFEF;
+
+		 }
+		 nav .topbar {
+		    display: flex;
+		    justify-content: space-between;
+		    align-items: center; }
+		.login-button,.signup-button {
+     		text-transform: uppercase;
+      		letter-spacing: 0.2em;
+      		padding: 5px;}
+      	.login-form {
+      		background-color: #535353;
+			padding: 2px;
+			color: #EFEFEF;
+			display: none;
+			 }
+		.login-form .container{
+			padding:5px;
+		}
+		#login {
+			border:none;
+			border-style: none;
+		    background-color: #303030;
+		    color: white;
+		    font-weight: 700;
+		    text-transform: uppercase;
+		    letter-spacing: 1px;
+		    text-align: center;
+		    width: 100%;
+		    height: 5px;}
+      	
+	</style>
+	<script>
+		function validate(){
+			var x =document.getElementsByName('user')[0].value;
+			if(x == ""){
+				document.getElementById("name_demo").innerHTML = "Please enter a name";
+				return false;//prevent from sending the form
+			}
+		}
+	</script>
+</head>
+<body>
+	<nav>
+<div class = "topbar">
+	
+	<object type='image/svg+xml' data='https://s3.amazonaws.com/codecademy-content/courses/jquery/audit/images/sole-logo.svg'></object>
+	
+	<div>
+		<span class ="signup-button">Sign Up</span>
+		<span class = "login-button">Log In</span>
+	</div>
+</div>
+</nav>
+
+<!--Form-->
+<div class = "login-form">
+	<div class = "container">
+		<form action="/test1" method="post" onsubmit="return validate()">
+	    <input type="text" name="user" size="40">
+	    <p id="name_demo"></p>
+	    <p id="retry"><%= retry %></p>
+	    <input type="password" name="password"size="40"><br>
+	    <button type="submit" id="login">Login</button>
+	    </form>		
+	</div>
+</div>
+
+<!--content-->
+<div class = "container"></div>
+</body>
+<script src=https://code.jquery.com/jquery-3.2.1.min.js></script>
+<script>
+	$('.login-button').on('click', () => {
+  $('.login-form').toggle();
+});
+</script>
+<script type="text/javascript">
+	if(document.getElementById("retry").innerHTML.match("retry"))
+		document.getElementById("retry").innerHTML = "user name is not existed";
+</script>
+</html>

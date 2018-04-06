@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>welcome</title>
+	
+</head>
+<body>
+<h1><%= message %></h1>
+<p id="redirect"><%= redirect %></p>
+</body>
+<script type="text/javascript">
+		if(document.getElementById("redirect").innerHTML =="jump")
+			setTimeout(function(){
+				window.location.href = '/test1';
+			},3000);
+	</script>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+  <head lang="en">
+      <meta charset="UTF-8">
+    <title>Cosmetics</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,700|Varela+Round" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <link rel="stylesheet" type="text/css" href="/style_menu.css">
+   
+
+  </head>
+
+  <body>
+   <!--nav menu-->
+    <nav class = "menu">
+
+      <div class = 'object'>
+        <h2 style="color:red">logo</h2>
+      </div>
+        <!--3-->    
+        <a class="navbar" href="/login">LOGIN</a> 
+          <!--4-->
+        <a class="navbar" href="/signup">REGISTER</a>
+        <!--2-->
+        <a class="navbar" href="/">HOME</a>
+        <a style="color:red;font-weight:600;" class="navbar" href="/edit">NEW +</a>
+        <div class="dropdown"> 
+            <div class="dropbtn" href="#profile">PROFILE</div>
+            <div class= "dropdown-content">
+              <a href="">Profile</a>
+              <a href="">Setting</a>
+              <a href="">Logout</a>
+            </div> 
+        </div>
+    </nav>
+
+    <!--Nav menu end-->
+    <div class="signup">
+     
+      <div class="signuph">
+        <h1>SIGNUP</h1>
+      </div>
+      Username:<br/>
+      <input type="text" id="name" name="username" required><br/> 
+      <p id="name_hint"></p>
+      Password: <br/>
+      <input type="text" id="pwd" name="password" required><br/>
+       <p id="pass_hint"></p>
+     
+      <button onclick="submitForm()">signup</button>  
+      <br>
+       <span style="display: block;color: grey;font-size: 12px;">Already has a account? <a href="/login">Login here</a></span>    
+    </div>
+
+  
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script type="text/javascript" src = "/main.js"></script>
+    <script>
+       //menu bar control
+      $('.dropdown-content').hide();
+      $('.dropbtn').on('mouseover',function(){
+        $(this).next().slideToggle('fast');
+      });
+      $('.dropdown-content').on('mouseleave',function(){
+        $(this).slideUp('fast');
+      });
+    </script>
+  </body>
+
+</html>

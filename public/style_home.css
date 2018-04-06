@@ -1,0 +1,49 @@
+* {
+    margin: 0;
+  }
+  @font-face {
+      font-family: Poppins;
+      src: url("https://s3.amazonaws.com/codecademy-content/courses/learn-css-grid/project-ii/Resources/Poppins/Poppins-Regular.ttf");
+  }
+  body {
+    background-image: url("http://www.wyzu.cn/uploadfile/2013/0319/20130319010102143.jpg");
+    background-attachment: fixed;
+    background-color: #FFF;
+    margin: 0 auto;
+  }
+
+  .container{
+    margin:0 auto;
+    margin-top:60px;
+    height: 1500px;   
+    text-align: center;
+    max-width: 450px;
+
+  }
+  .test{
+    display: grid;
+    grid-template-columns: 300px 300px;
+    grid-template-rows: repeat(3, 300px);
+    grid-auto-rows: 500px;
+    grid-gap: 100px;
+    justify-content:center;
+  
+  }
+  .gallery .photo{
+    background-image: url("https://s3.amazonaws.com/codecademy-content/courses/jquery/audit/images/sole-air-ii.png");  
+    background-size: 400px 250px;
+    background-position: center;
+    height: 250px;
+    transition: 0.2s;
+  }
+
+  .photo-detail{
+    margin-top: -5px;
+    background-color: #EFEFEF;
+    display: flex;
+    justify-content: space-between; 
+  }
+  .more-detail, .detailsbtn{
+    background-color: #535353;
+    color: #EFEFEF; 
+  }

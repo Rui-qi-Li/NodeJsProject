@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Building Blocks</title>
+</head>
+<body>
+<h1>Blocks</h1>
+<ul class = "block-list"></ul>
+<form>
+	<h2>New Block</h2>
+	<input type="text" name="name" placeholder="Name"><br>
+	<input type="text" name="age" placeholder="Age"><br>
+	<input type="submit">
+</form>
+<p><img src="test_bg.png"></p>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+<script>
+	var main = function(){
+		$.ajax('/passenger',{
+			//type:'GET',
+			//dataType:'json',
+			success:function(response){//must be annoymous here
+				/*
+				// array below
+				var list = [];
+				for(var i in response){
+					//list.push($('<li>',{text:response[i]}));
+				}
+				$('.block-list').append(list);
+				//object below
+				$('.block-list').append($('<li>',{text:response.Fixed}));*/
+				$.each(response,function(index,j){
+					appendNew(index,j);
+				})
+			}//success
+			
+		});//ajax
+		$('form').on('submit',function(event){
+			event.preventDefault();
+			var blockdata = $(this).serialize();//form: object
+			$.ajax({
+				type:'POST',
+				url:'/passenger',
+				data:blockdata,//URL-encoded notation
+			}).done(function(res){
+				//$('.block-list').append($('<li>',{text:res.name}));
+				alert(res.name);
+				$(this).trigger('reset');
+			});//done
+
+		});//submit
+		function appendNew(index, item){
+			content = '<a href = "/passenger/'+index+'" >'+item.name+'</a><a href="#" data-index="'+index+'"><img src="del_icon.png" style="width:3%;height:3%;"></a>';
+			$('.block-list').append($('<li>',{html:content}));
+		}
+		$('.block-list').on('click','a[data-index]',function(event){
+			event.preventDefault();
+			if(!confirm('Are you sure?'))
+				return false;//do nothing
+			$.ajax({
+				type:'DELETE',
+				url:'/passenger/'+ $(event.currentTarget).data('index')
+			}).done(function(){
+				$(event.currentTarget).parent().remove();
+			})//ajax
+		});	
+	};//main
+
+	$(document).ready(main);
+</script>
+</body>
+</html>
