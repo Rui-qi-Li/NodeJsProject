@@ -6,174 +6,178 @@
     <title>Cosmetics</title>
      <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,700|Varela+Round" rel="stylesheet">
-     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"> 
-     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">      
 	<link rel="stylesheet" type="text/css" href="/style_edit.css">
-	<link rel="stylesheet" type="text/css" href="/style_menu.css">
+	<link rel="stylesheet" type="text/css" href="/style_menu2.css">
   </head>
 
   <body>
-  	<!--nav menu-->
-    <nav class = "menu">
-
-			<div class = 'object'>
-				<h2 style="color:red">logo</h2>
+	<div class = "menuPlace"></div>
+	<div class="container">
+		<div class="well-lg text-center">
+			<h2 style="font-family: Poppins;">Let's add your new item <strong style="color:#d9534f;">HERE !</strong></h2> 
+			<p style="color:lightslategray;">create your own item list to remeber all the expire date, set the notification to help you don't miss the last day of your favourite one!</p>
+		</div> 
+	</div>
+	<!--Upload form-->
+    <form class = "col-md-10 col-md-offset-1 newPanel">
+		<!--image display-->
+		<div class = "col-md-4 imgPanel">
+			<div class="preview">
+				<img src="upload-default.png" id="preview-img">
 			</div>
-   			<!--3-->   	
-        <a class="navbar" href="/login">LOGIN</a>	
-        	<!--4-->
-        <a class="navbar" href="/signup">REGISTER</a>
-        <a class="navbar" href="/">HOME</a>
-				<a style="color:red;font-weight:600;" class="navbar" href="/edit">NEW +</a>
-				<!--2-->
-				<div class="dropdown"> 
-						<div class="dropbtn" href="#profile">PROFILE</div>
-						<div class= "dropdown-content">
-							<a href="">Profile</a>
-							<a href="">Setting</a>
-							<a href="">Logout</a>
-						</div> 
+			<div class="input-group">
+				<div class="form-control photo-label">Picture name</div>
+				<label for="upload-photo" class="input-group-addon browsing">Browsing</label>
+			</div>
+			<input type = "file" size = "20" id="upload-photo"/>
+
+			<div style="margin-top:50px;" class="icon">
+				<div class="icon">
+					<h4><strong>Reviews</strong></h4>
+					<i class="material-icons" style="color:lightslategray;">insert_comments</i>
 				</div>
-    </nav>
+				
+				<textarea class="form-control well" style="background-color:lightslategray;color:white;" name="textarea" placeholder="Type something here..." 
+				id="description-text" rows="3"></textarea>
+			</div>
 
-    <!--Nav menu end-->
-
-    <!--Upload form-->
-    <div class = "container">
-    	<form>
-    	<div class = "row-title">
-    		<h2>Let's add your new project HERE !</h2>
-    		<p>you will never forget to use it utill last minutes!</p>
-    	</div>
-    	<div class = "row">
-    		<div class = "col-md-3">
-    			<p>Add the photo</p>
-    		</div>
-    		<div class = "col-md-6 col-md-offset-1"">
-				<label for="upload-photo" class = "photo-label">Upload !</label>
-				<div class="preview">
-					<img src="upload-default.png" id="preview-img">
+		</div>
+		<!--save info-->
+    	<div class="col-md-6 col-md-offset-1">
+			<div class = "row">
+				<div class="icon col-md-2">
+					<i class="material-icons" style="color:red;">favorite_border</i>
 				</div>
-	    		<input type = "file" size = "20" id="upload-photo">
-    		</div>
-    	</div>
-    	<div class = "row">
-    		<div class = "col-md-3">
-    			<p>Product name</p>
-    		</div>
-    		<div class = "col-md-6 col-md-offset-1">
-    			Name: <input type="text" name="productName" id="productName">
-    		</div>
-    	</div>
-    	<div class = "row">
-    		<div class = "col-md-3">
-    			<p>Price you cost</p>
-    		</div>
-    		<div class = "col-md-6 col-md-offset-1">
-    			Euro: <input type="text" name="price" id="price">
-    		</div>
-    	</div>
-
-    	<div class = "row">
-    		<div class = "col-md-3">
-    			<p>Category</p>
-    		</div>
-    		<div class = "col-md-6 col-md-offset-1"">
-    			Selection: <select id="category">
-				  <option>Makeup</option>
-				  <option>Cleanser</option>
-				  <option>Face Cream</option>
-				  <option>Eye Treatment</option>
-				  <option>Masks</option>
-				  <option>Moisturizer</option>
-				  <option>Others</option>
-				</select>
-    		</div>
-    	</div>
-
-    	<div class = "row">
-    		<div class = "col-md-3">
-    			 <p>Buy date</p>
-    		</div>
-    		<div class = "col-md-6 col-md-offset-1"">
-    			 <div class = "date-area">
-			    Start: <input type="text" name="buy-date" id = "buy-date" placeholder="DD/MM/YYYY">
+				<div class="col-md-10 saveTitle">
+					<h4><strong>Product name</strong></h4>
+					<input class="form-control" name="productName" id="productName" type="text" placeholder="e.g. Lipstip">
 				</div>
-    		</div>
-    	</div>
+			</div><!--end row-->
 
-    	<div class = "row">
-    		<div class = "col-md-3">
-    			 <p>Expire date</p>
-    		</div>
-    		<div class = "col-md-6 col-md-offset-1"">
-    			 <div class = "date-area">
-			    Expire: <input type="text" name="expire-date" id = "expire-date" placeholder="DD/MM/YYYY">
+			<div class = "row">
+				<div class="icon col-md-2">
+					<i class="material-icons" style="color:coral;">euro_symbol</i>
 				</div>
-    		</div>
-    	</div>
-    	
-    	<div class = "row">
-    		<div class = "col-md-3">
-    			 <p>Shopping place</p>
-    		</div>
-    		<div class = "col-md-6 col-md-offset-1"">
-			    Where: <input type="text" name="shoppingplace" id="shoppingPlace">
-    		</div>
-    	</div>
-    	
-    	<div class = "row">
-    		<div class = "col-md-3">
-    			 <p>Set the notification?</p>
-    		</div>
-    		<div class = "col-md-6 col-md-offset-1"">
-    			<label for= "switch" class=" switch-label glyphicon glyphicon-bell"></label>
-    			<select id ="notification">
-    				<option>Expire before 1 month</option>
-    				<option>Expire before 1 week</option>
-    				<option>Expire before 2 weeks</option>
-    				<option>Expire before 3 weeks</option>
-    			</select>
-    		
-		    	<input type="checkbox" id="switch">
-    		</div>
-    	</div>
-    	<div class = "row">
-    		<div class = "col-md-3">
-    			<p>Add discription</p>
-    		</div>
-    		<div class = "col-md-6 col-md-offset-1"">
-			    <textarea name="textarea" placeholder="Type something here..." 
-			    id="description-text" cols="30" rows="10"></textarea>
-    		</div>
-    	</div>
-    	<div class = "row">
-    		<button id="save-button">Save</button>	
-    	</div>
-    	</form>
-    </div>
-  
-  
+				<div class="col-md-10 saveTitle">
+					<h4><strong>Cost</strong></h4>
+					<input class="form-control" name="price" id="price" type="text" placeholder="e.g. 30">
+				</div>
+			</div><!--end row-->
+
+			<div class = "row">
+				<div class="icon col-md-2">
+					<i class="material-icons" style="color:gold;">grade</i>
+				</div>
+				<div class="col-md-10 saveTitle">
+					<h4><strong>Category</strong></h4>
+					<div class="form-group">
+						<select class="form-control"id="category">
+							<option selected>Makeup</option>
+							<option>Cleanser</option>
+							<option>Face Cream</option>
+							<option>Eye Treatment</option>
+							<option>Eye Treatment</option>
+							<option>Masks</option>
+							<option>Moisturizer</option>
+							<option>Others</option>
+						</select>
+					</div>
+				</div>
+			</div><!--end row-->
+
+			<div class = "row">
+				<div class="icon col-md-2">
+					<i class="material-icons" style="color:deepskyblue;">date_range</i>
+				</div>
+				<div class="col-md-10 saveTitle">
+					<h4><strong>Buy date</strong></h4>
+					<div class='input-group'>
+						<input type='text' class="form-control" name="buy-date" id='buy-date' placeholder="DD/MM/YYYY"/>
+						<label class="input-group-addon" for="buy-date">
+							<i class="material-icons" style="font-size:18px;color:deepskyblue;">date_range</i>
+						</label>
+					</div>
+				</div>
+					
+				
+			</div><!--end row-->
+
+			<div class = "row">
+				<div class="icon col-md-2">
+					<i class="material-icons" style="color:firebrick;">date_range</i>
+				</div>
+				<div class="col-md-10 saveTitle">
+					<h4><strong>Expire date</strong></h4>
+					<div class='input-group'>
+						<input type='text' class="form-control" name="expire-date" id='expire-date' placeholder="DD/MM/YYYY"/>
+						<label class="input-group-addon" for="expire-date">
+							<i class="material-icons" style="font-size:18px;color:firebrick;">date_range</i>
+						</label>
+					</div>
+				</div>
+			</div><!--end row-->
+
+			<div class = "row">
+				<div class="icon col-md-2">
+					<i class="material-icons" style="color:forestgreen;">location_on</i>
+				</div>
+				<div class="col-md-10 saveTitle">
+					<h4><strong>Shopping spot</strong></h4>
+					<input class="form-control" name="shoppingplace" id="shoppingPlace" type="text" placeholder="e.g. Maynooth Dunnes Store">
+				</div>
+			</div><!--end row-->
+
+			
+			<div class = "row">
+				<div class="icon col-md-2">
+					<i class="material-icons" style="color:goldenrod;">notifications</i>
+				</div>
+				<div class="col-md-10 saveTitle">
+					<h4><strong>Notification</strong></h4>
+					<select class="form-control"id="notification">
+						<option selected>Expire before 1 month</option>
+						<option>Expire before 1 week</option>
+						<option>Expire before 2 weeks</option>
+						<option>Expire before 3 weeks</option>
+					</select>
+				</div>
+			</div><!--end row-->
+			
+		</div>
+		<button class = "btn btn-danger btn-block well-sm" style="margin-bottom:50px;"id="save-button">Publish</button>
+    
+	</form><!--end newPanel-->	
+	  <!-- Simple alert -->
+	  <button data-target="#save-dialog" data-toggle="modal" class="btn pmd-z-depth saveaskBtn" type="button" style="display: none;">Alert</button>
+
+	  <div tabindex="-1" class="modal fade" id="save-dialog" style="display: none;" aria-hidden="true">
+		<div class="modal-dialog">
+		  <div class="modal-content">
+			<div class="modal-body">
+			  <h3>Do you want to publish this item at once?</h3>
+			</div>
+			<div class="pmd-modal-action pmd-modal-bordered text-right">
+			  <button data-dismiss="modal" class="btn pmd-btn-raised btn-primary" onclick="saveConfrim()">Yes,publish it now</button>
+			  <button data-dismiss="modal" class="btn pmd-btn-raised btn-default" >No, back to page</button>
+			</div>
+		  </div>
+		</div>
+	  </div>
    
 	</body>
 	<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
 	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
-	<script type="text/javascript" src = "/main.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src = "/firebaseSet.js"></script>
 	<script type="text/javascript" src = "/main_product.js"></script>
-  
+	<script type="text/javascript" src = "/main_menu.js"></script>
   <script>
   	var main = function(){
-	  //menu bar control
-      $('.dropdown-content').hide();
-      $('.dropbtn').on('mouseover',function(){
-        $(this).next().slideToggle('fast');
-      });
-      $('.dropdown-content').on('mouseleave',function(){
-        $(this).hide('fast');
-      });
 
-      //preview control
+    //preview control
     $('#upload-photo').change(function(e){
     	e.preventDefault();
     	$('.photo-label').text($(this)[0].files[0].name);//get the image name without fakepath

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Profile</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style_profile.css" type="text/css">
+    <link rel="stylesheet" href="/style_lorraine.css" type="text/css">
+
+  </head>
+  <body id="accountBody" onload="loading()">
+    <div class = "menuPlace">
+
+    </div>
+    <h1 id="accountHeading"></h1>
+    <div id="loader"></div>
+    <div id="profileWrap">
+      <div id="profilePicDisplay">
+        <img id="profilePic">
+      </div>
+      <div id="uploadButton">
+        <Label>Upload New Profile Picture</Label><br/>
+        <progress value="0" max="100" id="progressBar"></progress>
+        <input type="file" value="upload" id="filebutton"/>
+      </div>
+      <div id="profileInfoDisplay">
+        <label>Full Name</label>
+        <span class="span" id="fullName" contenteditable="false"></span><br />
+        <br/>
+        <label>Username</label>
+        <span class="span" id="userName" contenteditable="false"></span><br />
+        <br/>
+        <label>Email</label>
+        <span class="span" id="email" contenteditable="false"></span><br />
+        <br/>
+        <label>About</label>
+        <span class="span" id="aboutUser" contenteditable="false"></span><br />
+        <br/>
+        <label>Interests</label>
+        <span class="span" id="userInterests" contenteditable="false"></span><br />
+        <br/>
+        <label>Products</label>
+        <span class="span" id="userProducts" contenteditable="false"></span><br />
+      </div>
+    </div>
+    <div id="AccountPageButtons">
+        <button class="button" id = "button" onclick= "editProfile()">Edit Profile</button>
+        <button class="button"  id="button" onclick="sendEmailVerification()">Send Email Verification</button>
+        <button class="button"  id="button" onclick="sendPasswordReset()">Reset Password</button>
+        <button  class="button" id="button" onclick="logout()">Log out</button>
+      </div>
+
+     <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+     <script>
+        var config = {
+      apiKey: "AIzaSyDiUcBb8L5PHUCMs3NQTbK6tv-FzGQrUHs",
+      authDomain: "cosmet-users.firebaseapp.com",
+      databaseURL: "https://cosmet-users.firebaseio.com",
+      projectId: "cosmet-users",
+      storageBucket: "cosmet-users.appspot.com",
+      messagingSenderId: "8164921910"
+      };
+      firebase.initializeApp(config);
+      </script>
+      <script type = "text/javascript" src = "profile.js"></script>
+      <script>
+         //menu bar control
+      $.get('menu.html',function(res){
+        $('.menuPlace').html(res);
+        $('.dropdown-content').hide();
+        $('.dropbtn').on('mouseover',function(){
+          $(this).next().slideToggle('fast');
+        });
+        $('.dropdown-content').on('mouseleave',function(){
+          $(this).slideUp('fast');
+        });
+      </script>
+     
+  </body>
+  <!-- No need for a footer, not yet at least -->
+</html>

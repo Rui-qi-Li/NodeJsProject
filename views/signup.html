@@ -5,68 +5,65 @@
       <meta charset="UTF-8">
     <title>Cosmetics</title>
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,700|Varela+Round" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/style.css">
-    <link rel="stylesheet" type="text/css" href="/style_menu.css">
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <link rel="stylesheet" type="text/css" href="/style_login.css"> 
+    <link rel="stylesheet" type="text/css" href="/style_menu2.css">
    
 
   </head>
 
   <body>
-   <!--nav menu-->
-    <nav class = "menu">
-
-      <div class = 'object'>
-        <h2 style="color:red">logo</h2>
-      </div>
-        <!--3-->    
-        <a class="navbar" href="/login">LOGIN</a> 
-          <!--4-->
-        <a class="navbar" href="/signup">REGISTER</a>
-        <!--2-->
-        <a class="navbar" href="/">HOME</a>
-        <a style="color:red;font-weight:600;" class="navbar" href="/edit">NEW +</a>
-        <div class="dropdown"> 
-            <div class="dropbtn" href="#profile">PROFILE</div>
-            <div class= "dropdown-content">
-              <a href="">Profile</a>
-              <a href="">Setting</a>
-              <a href="">Logout</a>
-            </div> 
-        </div>
-    </nav>
-
-    <!--Nav menu end-->
-    <div class="signup">
-     
+    <div class = "container menuPlace"></div>
+    <div class="container col-md-4 col-md-offset-4 well-lg loginPanel">
+    
       <div class="signuph">
-        <h1>SIGNUP</h1>
+        <h1 class="text-center well-lg">SIGNUP</h1>
       </div>
-      Username:<br/>
-      <input type="text" id="name" name="username" required><br/> 
-      <p id="name_hint"></p>
-      Password: <br/>
-      <input type="text" id="pwd" name="password" required><br/>
-       <p id="pass_hint"></p>
-     
-      <button onclick="submitForm()">signup</button>  
-      <br>
-       <span style="display: block;color: grey;font-size: 12px;">Already has a account? <a href="/login">Login here</a></span>    
-    </div>
+      <div class="input-group inEmail">
+        <span class="input-group-addon" style="padding:0 8px;"><i class="material-icons">perm_identity</i></span>
+        <input type="text" id="name" name="username" required class="form-control" placeholder="Email">
+      </div>
 
-  
-    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-    <script type="text/javascript" src = "/main.js"></script>
-    <script>
-       //menu bar control
-      $('.dropdown-content').hide();
-      $('.dropbtn').on('mouseover',function(){
-        $(this).next().slideToggle('fast');
-      });
-      $('.dropdown-content').on('mouseleave',function(){
-        $(this).slideUp('fast');
-      });
-    </script>
+      <div class="input-group inPwd">
+        <span class="input-group-addon" style="padding:0 8px;"><i class="material-icons">lock</i></span>
+        <input type="password"  id="pwd" name="password" required class="form-control" placeholder="Password">
+      </div>
+     
+      <div class="alert alert-danger well-sm alertErr" style="display:none;">
+        <strong>Warning!  </strong><span id="alertWord">password error here</span>.
+      </div>
+
+      <button class="btn btn-primary btn-block" onclick="submitForm()">Register</button>
+      <!-- Simple alert -->
+      <button data-target="#simple-dialog" data-toggle="modal" class="btn pmd-z-depth popBtn" type="button" style="display:none;">Alert</button>
+
+      <div tabindex="-1" class="modal fade" id="simple-dialog" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <h3>Login successfully !</h3>
+            </div>
+            <div class="pmd-modal-action pmd-modal-bordered text-right">
+              <button data-dismiss="modal" class="btn pmd-btn-raised btn-primary" onclick="modalBtn()">Back to home</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><span>Already have a account? <a href="/login">Login here</a></span> 
+</div><!--end container-->
   </body>
+  
+  <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src = "/firebaseSet.js"></script>
+  <script type="text/javascript" src = "/authentication.js"></script>
+  <script type="text/javascript" src = "/main_menu.js"></script>
+    <script>
+    var main = function(){
+
+    };
+    $(document).ready(main);
+    </script>
 
 </html>

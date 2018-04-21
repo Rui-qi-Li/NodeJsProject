@@ -1,0 +1,42 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Logo</a></li>
+                    <li class="active"><a href="/" style="font-weight:600;">Home</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right"> 
+                    <button class="btn btn-danger navbar-btn newBtn" style="display:none;"><a href="/edit">New+</a></button>
+                    <li>
+                            <a href="/profile_edit" class = "headBtn" style = "padding:0;display:none;"><img src="head.jpg" class="img-circle" width="45" height="45"></a> 
+                    </li>
+                    <li class="dropdown">
+                        <a class = "dropDownBtn" style="display:none;" data-toggle="dropdown" href="#">Setting
+                        <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/security_edit"><span class = "glyphicon glyphicon-cog"> Security</span></a></li>
+                            <li><a href="/profile_edit"><span class = "glyphicon glyphicon-user"> Profile</span></a></li>
+                            <li><a href="#"><span class = "glyphicon glyphicon-lock"> Others</span></a></li>
+                            <li><a href="javascript:logoutPop()" class = "logoutLink"><span class = "glyphicon glyphicon-log-out"> Logout</span></a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/login" class = "loginBtn" style="display:none;">Login</a></li>
+                    <li><a href="/signup" class = "signupBtn"style="display:none;">Signup</a></li>
+                </ul>
+        </div>
+    </nav>
+     <!-- Simple alert -->
+     <button data-target="#logout-dialog" data-toggle="modal" class="btn pmd-z-depth popLogoutBtn" type="button" style="display: none;">Alert</button>
+
+     <div tabindex="-1" class="modal fade" id="logout-dialog" style="display: none;" aria-hidden="true">
+       <div class="modal-dialog">
+         <div class="modal-content">
+           <div class="modal-body">
+             <h3>Do you want to logout at once?</h3>
+           </div>
+           <div class="pmd-modal-action pmd-modal-bordered text-right">
+             <button data-dismiss="modal" class="btn pmd-btn-raised btn-primary" onclick="signoutForm()">Yes,I comfirm</button>
+             <button data-dismiss="modal" class="btn pmd-btn-raised btn-default" style="border-radius:20px;">Cancelled</button>
+           </div>
+         </div>
+       </div>
+     </div>

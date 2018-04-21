@@ -1,39 +1,51 @@
  <div class="row">
-          <!--take up to 4 small columns-->
-          <div class="col-md-4 col-md-offset-1">
 
-            <div class="productcard">
-              <p class = "productName">Name</p>
-              <p class="expireDate">03.02.2019</p>
-              <div class="photo"></div>
+    <div class="page-header"></div>
+
+    <div class = "col-md-12" style="padding:0;">
+      
+    <!--take up to 4 small columns-->
+    <div class="col-md-5 card">
+      <div class="photo view overlay">
+          <img class="card-img-top" src="upload-default.png">
+      </div>
+      <!-- Default raised circle button with ripple effect -->
+      <button class="btn pmd-btn-fab pmd-btn-raised pmd-ripple-effect btn-danger rightBtn"><i class="material-icons pmd-sm" style="font-size:36px">chevron_right</i></button>
+
+      <div class = "card-body well-lg">
+          <h3 id="productName">Product name</h3>
+          <div class="page-header" style="margin:0;"></div>
+          <h3 style = "color:#d9534f" id="expire-date">Expire date</h3>
+      </div>
+
+      <div class="card-footer well-sm">
+          <i class="material-icons pmd-sm bell" style="font-size:20px; vertical-align:bottom;">notifications</i>
+          <span class="pmd-card-subtitle-text">When to notice me : </span><span id="notification"></span>
+      </div>
+     
+    </div><!--end col-md-5-->
+
+    <div class = "col-md-5 col-md-offset-2 infoPanel" style="display:none;">
+        <div class="moreInfo well-lg">
+            <i class="material-icons pmd-md" style="color:coral;">euro_symbol</i>
+            <span id="price">0</span>
+        </div> 
+        <div class="moreInfo well-lg">
+            <i class="material-icons pmd-md" style="color:forestgreen;">location_on</i>
+            <span id="shoppingPlace">Place</span>
+        </div>
+        <div class="moreInfo well-lg">
+            <i class="material-icons pmd-md" style="color:gold;">grade</i>
+            <span id="category">Category</span>
+        </div>
+        <div class="moreInfo well-lg">
+            <i class="material-icons pmd-md" style="color:lightslategray;">insert_comments</i>
+            <div style="width:100px;">
+              <p class = "description well-sm text-justify" id="description-text">sdfsdfsdfsdfsddfsdfsdfsdsdfs</p>
             </div>
-
-            <div class="more">
-            <!-- more info-->
-              <div class="more-container">
-                <a class="more-btn" href="#">More</a>
-                <!--default: none-->
-                <ul class="more-menu">
-                  <li class="buyinfo">Buy Info</li>
-                  <li class="description">Description</li>
-                  <li class="buyinfo-menu">
-                    <span class = "price glyphicon glyphicon-euro">-</span><br>
-                    <span class = "price glyphicon glyphicon-tag">-</span><br>
-                    <span class = "price glyphicon glyphicon-shopping-cart">-</span><br>
-                    <span class = "price glyphicon glyphicon-calendar">-</span><br>
-                  </li>
-                  <li class = "description-menu">
-                    <p>rice glyphicon glyphicon-eurorice glyphicon glyphicon-eurorice glyphicon glyphicon-eurorice glyphicon glyphicon-eurorice glyphicon glyphicon-eurorice glyphicon glyphicon-euro</p>
-                  </li>
-                </ul>
-              </div>
-              <!--bell notification-->
-              <div class="bell">
-                <span class="notification glyphicon glyphicon-bell"></span>
-              </div>
-
-            </div><!--end more-->
-
-          </div><!--end col-->
-          
-        </div><!--end row-->
+        </div>  
+      <!-- Primary circle button with ripple effect -->
+      <button class="btn pmd-btn-raised pmd-ripple-effect btn-block btn-primary" style="font-size:14px;text-transform:none;background-color:#428bca;"> Edit</button>
+      </div><!--end infoPanel-->
+  </div><!--end col-md-12-->
+</div><!--end row-->

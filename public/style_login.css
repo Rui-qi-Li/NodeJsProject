@@ -1,0 +1,13 @@
+/* Propeller icons */
+@import "http://fonts.googleapis.com/icon?family=Material+Icons";
+@import "http://propeller.in/components/icons/css/google-icons.css";
+
+body{
+    margin-top:80px;
+}
+.loginPanel{
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+.loginPanel div{
+    margin: 20px 0;
+}

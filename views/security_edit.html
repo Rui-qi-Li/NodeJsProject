@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+  <head lang="en">
+      <meta charset="UTF-8">
+    <title>Cosmetics</title>
+     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,700|Varela+Round" rel="stylesheet">
+     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"> 
+     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="/style_security.css">
+    <link rel="stylesheet" type="text/css" href="/style_menu2.css">
+	</head>
+	
+  <body>
+	<div class = "menuPlace"></div>
+		
+		<div class = "col-md-3 col-md-offset-1 sideBar">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Setting</div>
+                <a href="/security_edit" class="list-group-item">Security</a>
+                <a href="/profile_edit" class="list-group-item">Profile</a>
+                <a href="#" class="list-group-item">Others</a>
+            </div>
+        </div>
+        
+        <div class = "col-md-6 editPanel">
+        <!--Upload form-->
+    	<form>
+            <div class = "row well-lg">
+                <div class = "col-md-3">
+                    <p>Account Email</p>
+                </div>
+                <div class = "col-md-6 col-md-offset-2">
+                    <input class="form-control" type="text" name="email" id="email">
+                    <br><button class = "btn btn-primary" id="verification-button">Send Email Verification</button>
+                </div>
+            </div>
+
+			<div class = "row well-lg">
+                <div class = "col-md-3">
+                        <p>Change Password</p>
+                </div>
+                <div class = "col-md-6 col-md-offset-2">
+                        <label class="label">Your old password</label>
+                        <input class="form-control" type="text" name="oldpwd" id="oldpwd">
+                        <br><label class="label">Your new password</label>
+                        <input class="form-control" type="text" name="newpwd" id="newpwd">
+                    <br><button class = "btn btn-primary" id="resetPass-button">Reset Password</button>
+                </div>
+            </div>
+
+            <div class = "row well-lg">
+                <div class = "col-md-3">
+                    <p class = "deleteBtn" style="color:#d9534f;font-weight:600">Delete</p>
+                </div>
+                <div class = "col-md-6 col-md-offset-2">
+                    <label class="label">Delete account completely</label>
+                    <button class = "btn btn-danger" id="verification-button">Delete account</button>
+                </div>
+            </div>
+            <div class = "row well-lg">
+                 <button class = "btn btn-default btn-block securityBtn" id="save-button">Save</button>
+            </div>    
+    	</form><!--end form-->
+    </div>
+   
+	</body>
+	<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src = "/firebaseSet.js"></script>
+	<script type="text/javascript" src = "/main_profile.js"></script>
+    <script type="text/javascript" src = "/main_menu.js"></script>
+    <script>
+  	var main = function(){
+
+	};//main
+
+	$(document).ready(main);
+  </script>
+</html>

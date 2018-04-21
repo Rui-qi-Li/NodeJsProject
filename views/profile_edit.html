@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+  <head lang="en">
+      <meta charset="UTF-8">
+    <title>Cosmetics</title>
+     <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,700|Varela+Round" rel="stylesheet">
+     <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"> 
+     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" type="text/css" href="/style_profile2.css">
+	<link rel="stylesheet" type="text/css" href="/style_menu2.css">
+	</head>
+	
+  <body>
+	<div class = "container menuPlace">
+	
+	</div>
+		<!--Upload form-->
+		<div class = "container col-md-3 col-md-offset-1 sideBar">
+				<div class="panel panel-primary">
+						<div class="panel-heading">Setting</div>
+						<a href="/security_edit" class="list-group-item">Security</a>
+						<a href="/profile_edit" class="list-group-item">Profile</a>
+						<a href="#" class="list-group-item">Others</a>
+				</div>
+		</div>
+
+    <div class = "container col-md-6 editPanel" style="margin-bottom:50px;">
+    	<form>
+    	<div class = "row well-lg">
+    		<div class = "col-md-3">
+					<div class="preview">
+						<img class="img-circle" src="upload-default.png" id="preview-img" width="150" height="150">
+					</div>
+					<input type = "file" size = "20" id="upload-photo">
+				</div>
+				<div class = "col-md-3 col-md-offset-2">
+						<br><br><label for="upload-photo" class = "photo-label btn btn-primary">Change</label>
+				</div>
+    	</div>
+    
+    	<div class = "row well-lg">
+    		<div class = "col-md-4">
+    			<p>Username</p>
+				</div>
+				
+    		<div class = "col-md-6">
+					<label class="label">Show on user home page</label>
+    			<input class="form-control" type="text" name="username" id="username" placeholder="Username">
+    		</div>
+    	</div>
+
+    	<div class = "row well-lg">
+    		<div class = "col-md-4">
+    			 <p>Public email</p>
+    		</div>
+    		<div class = "col-md-6">
+					<label class="label">Show on user home page</label>
+					<input class="form-control" type="text" name="email" id="email" placeholder="default@gmail.com">
+					
+    		</div>
+			</div>
+
+			<div class = "row well-lg">
+				<div class = "col-md-4">
+						<p>URL</p>
+				</div>
+				<div class = "col-md-6 ">
+					<input class="form-control" type="text" name="email" id="email" placeholder="http://">
+					
+				</div>
+			</div>
+
+    	<div class = "row well-lg">
+    		<div class = "col-md-4">
+    			<p>About Me</p>
+    		</div>
+    		<div class = "col-md-6">
+			    <textarea class="form-control well" name="textarea" placeholder="Type something here..." 
+			    id="aboutme" cols="30" rows="10"></textarea>
+				</div>
+				<button class = "btn btn-default btn-block saveBtn" id="save-button">Save</button>
+			</div>
+			
+    	</form>
+    </div>
+   
+	</body>
+	<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src = "/firebaseSet.js"></script>
+	<script type="text/javascript" src = "/main_profile.js"></script>
+  <script type="text/javascript" src = "/main_menu.js"></script>
+  <script>
+  	var main = function(){
+	  /*//menu bar control
+      $.get('menu.html',function(res){
+        $('.menuPlace').html(res);
+        $('.dropdown-content').hide();
+        $('.dropbtn').on('mouseover',function(){
+          $(this).next().slideToggle('fast');
+        });
+        $('.dropdown-content').on('mouseleave',function(){
+          $(this).slideUp('fast');
+        });
+			});*/
+
+      //preview control
+    	$('#upload-photo').change(function(e){
+    	e.preventDefault();
+    	$('.photo-label').text($(this)[0].files[0].name);//get the image name without fakepath
+    	var reader = new FileReader();
+    	reader.onload = function(e){
+    		$('#preview-img').attr('src',e.target.result);
+    	};//do not need to empty
+    	reader.readAsDataURL($(this)[0].files[0]);
+    });
+
+	};//main
+
+	$(document).ready(main);
+  </script>
+</html>
