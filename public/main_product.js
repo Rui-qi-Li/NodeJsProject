@@ -24,17 +24,14 @@ var saveConfrim = function(event){
   descriptionText = $('#description-text').val();
 
   //create the user database node
-  if(uid){
-    //reference to login user's storage
-    storageRef = firebase.storage().ref('image/'+uid);
-    //reference to login user's database
-    productRef = firebase.database().ref('product/'+uid);
-    //save all the form when "click"
-    saveProduct(productImg,productName,price,category,buyDate,expireDate,shoppingPlace,notification,descriptionText);
-    //$('form').trigger('reset');
-  }
-  else
-    alert("user account is not existed!");
+  //reference to login user's storage
+  storageRef = firebase.storage().ref('image/'+uid);
+  //reference to login user's database
+  productRef = firebase.database().ref('product/'+uid);
+  //save all the form when "click"
+  saveProduct(productImg,productName,price,category,buyDate,expireDate,shoppingPlace,notification,descriptionText);
+  //$('form').trigger('reset');
+
 };
 
 function saveProduct(productImg,productName,price,category,buyDate,expireDate,shoppingPlace,notification,descriptionText){
@@ -89,6 +86,35 @@ function moreInfo(){
   $('.notification').on('click',activeBell);
 }//moreInfo function
 
+var showUserTitle = function(){
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      console.log("testing user title showing");
+      $('.userTitle').show();
+      //load user image and infomation
+      var profileRef3 = firebase.database().ref('profile');
+      profileRef3.on('value',function(snapshot){
+        var DB3 = snapshot.child(uid).val();
+        if(DB3){
+          //update title info
+          $('.emailTitle').next().text(DB3.titleEmail);
+          $('.urlTitle').next().text(DB3.titleURL);
+          //update title img
+          var headRef3 = firebase.storage().ref('image_profile/'+uid).child(DB3.headImg);
+          headRef3.getDownloadURL().then(function(url){
+              $('.userTitle').find('img').attr('src',url);
+          }).catch(function(error){
+              $('.userTitle').find('img').attr('src','upload-default.png');
+          })
+        }
+      })
+    } else {
+      $('.userTitle').hide();
+    }
+  });
+  var user2 = firebase.auth().currentUser;
+}
+
 var showProduct = function(){
   productRef = firebase.database().ref('product');
   //listen for the value existed or not, callback func, after the onAuth
@@ -110,19 +136,19 @@ var showProduct = function(){
           //push all these deferred objects (.ajax calls, promise objects)
           Promise.push($.get('/block.html',function(res){
             div.html(res);
-            div.find('#productName').text((x.productName)==0?( $('#productName').text()
+            div.find('#productName').text((x.productName)==0?( $('#productName').val()
           ):(x.productName));
-            div.find('#notification').text((x.notification)==0?( $('#notification').text()
+            div.find('#notification').text((x.notification)==0?( $('#notification').val()
           ):(x.notification));
-            div.find('#expire-date').text((x.expireDate)==0?( $('#expire-date').text()
+            div.find('#expire-date').text((x.expireDate)==0?( $('#expire-date').val()
           ):(x.expireDate));
-            div.find('#price').text((x.price)==0?( $('#price').text()
+            div.find('#price').text((x.price)==0?( $('#price').val()
           ):(x.price));
-            div.find('#shoppingPlace').text((x.shoppingPlace)==0?( $('#shoppingPlace').text()
+            div.find('#shoppingPlace').text((x.shoppingPlace)==0?( $('#shoppingPlace').val()
           ):(x.shoppingPlace));
-            div.find('#category').text((x.category)==0?( $('#category').text()
+            div.find('#category').text((x.category)==0?( $('#category').val()
             ):(x.category));
-            div.find('#description-text').text((x.descriptionText)==0?( $('#description-text').text()
+            div.find('#description-text').text((x.descriptionText)==0?( $('#description-text').val()
           ):(x.descriptionText));
 
             console.log("2nd:test async $.get order for each div");

@@ -12,15 +12,15 @@
 
      </div>
     <div class="container col-md-9 col-md-offset-1">
-      <div class = "row" style="color:lightslategrey;">
-        <div class="col-md-1" style="margin-right:20px;">
-            <img src="head.jpg" class="img-circle" width="80" height="80">
-        </div>
-        <div class="col-md-6">
-          <h3 style="margin-left:10px;color:darkslategray;">Username</h3>
-          <label class = "well-sm">Email :</label><span>default@gmail.com</span>
-          <label class = "well-sm">URL :</label><span>http://default.com</span>
-        </div>
+      <div class = "row userTitle" style="color:lightslategrey;display:none;">
+          <div class="col-md-1" style="margin-right:20px;">
+              <img src="upload-default.png" class="img-circle" width="80" height="80">
+          </div>
+          <div class="col-md-6">
+            <h3 style="margin-left:10px;color:darkslategray;">Username</h3>
+            <label class = "well-sm emailTitle">Email :</label><span>default@gmail.com</span>
+            <label class = "well-sm urlTitle">URL :</label><span>http://default.com</span>
+          </div>
       </div>
      
       <!--content contains all loading blocks-->
@@ -36,46 +36,12 @@
    <script type="text/javascript" src = "/main_product.js"></script>
    <script type="text/javascript" src = "/main_menu.js"></script>
     <script>
-      /* re-useable objects using constructor function (class)
-      function var confirmation = {
-        init: function(){
-          $('.confirmation').on('click','button',this.loadConfrim);
-          $('.confirmation').on('click','.view-pass',this.showBoarding);
-        },
-        loadConfirm:function(){
-          $.ajax('...htm/',{});
-        },
-        showBoarding:function(event){}
-      };
-      */
-      /*re-useable objects using constructor function (class)
-      function Conrimation(el){
-        this.el = el;//add element variable;
-        this.ticket = this.el.find('.ticket');
-        var comfirmation = this; //set "this" refer to function's 
-        this. loadConfirm:function(){
-          $.ajax('...htm/',{
-            timeout:3000,//set timeout
-            context:confirmation; //now "this" refer to confirmation
-            success:function(response){
-              this.ticket.html(response).slideDown();
-            }
-          });
-        };
-        this.showBoarding = funciton(){
-          event.preventDefault();
-          $(this).hide();
-          confirmation.el.find('.boarding-pass').show();
-        };
-        this.el.on('click','button',this.loadConfrim);
-        this.el.on('click','.view-pass',this.showBoarding);
-      }
-      */
       var main = function() {
+      //load user title
+      showUserTitle();
       //load the database
       showProduct();
-      //date control
-      //var day = +$('.expireDate');    
+       
       };
        //fire when HTML and DOM tree is ready
       $(document).ready(main);

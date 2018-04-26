@@ -29,6 +29,18 @@ $.when.apply($,Promise2).done(function(){
           $('.dropDownBtn').show();
           $('.loginBtn').hide();
           $('.signupBtn').hide();
+          var profileRef2 = firebase.database().ref('profile');
+          profileRef2.on('value',function(snapshot){
+            var DB2 = snapshot.child(uid).val();
+            if(DB2){
+                var headRef2 = firebase.storage().ref('image_profile/'+uid).child(DB2.headImg);
+                headRef2.getDownloadURL().then(function(url){
+                    $('.headBtn').find('img').attr('src',url);
+                }).catch(function(error){
+                    $('.headBtn').find('img').attr('src','upload-default.png');
+                })
+            }
+          })
         } else {
             $('.headBtn').hide();
             $('.newBtn').hide();
@@ -53,3 +65,8 @@ function logoutPop(){
     console.log("link test");
 }
 $('.longoutLink span').trigger('click');
+
+$('.re-editBtn').on('click',function(){
+    console.log(profileRef2);
+    //location.href='/edit';
+})
