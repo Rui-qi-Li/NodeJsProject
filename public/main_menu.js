@@ -6,17 +6,17 @@
     $('.menuPlace').html(res);
 
     $('.dropDownBtn').on('mouseenter',function(){
-        $('.dropdown-menu').slideDown();
+        $('.dropdown-menu').show();
     })
     $('.dropDownBtn').on('mouseleave',function(){
       //true or false will not work
       if(	$('.dropdown-menu li:hover').length == 0)
-        $('.dropdown-menu').slideUp();
+        $('.dropdown-menu').hide();
     })
 
     $('.dropdown-menu').on('mouseleave',function(){
       if($('.dropDownBtn:hover').length == 0)
-        $('.dropdown-menu').slideUp();
+        $('.dropdown-menu').hide();
     })
     console.log("test $.get order");
 })//end $.get
