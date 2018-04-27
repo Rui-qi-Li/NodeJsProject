@@ -147,7 +147,8 @@
 			</div><!--end row-->
 			
 		</div>
-		<button class = "btn btn-danger btn-block well-sm" style="margin-bottom:50px;"id="save-button">Publish</button>
+		<button class = "btn btn-danger btn-block well-sm" style="display:none;"id="del-button">Delete</button>		
+		<button class = "btn btn-primary btn-block well-sm" style="margin-bottom:50px;"id="save-button">Publish</button>
     
 	</form><!--end newPanel-->	
 	  <!-- Simple alert -->
@@ -166,7 +167,24 @@
 		  </div>
 		</div>
 	  </div>
-   
+	 
+		 <!-- Simple alert -->
+		 <button data-target="#del-dialog" data-toggle="modal" class="btn pmd-z-depth delaskBtn" type="button" style="display: none;">Alert</button>
+
+		 <div tabindex="-1" class="modal fade" id="del-dialog" style="display: none;" aria-hidden="true">
+		 <div class="modal-dialog">
+			 <div class="modal-content">
+			 <div class="modal-body">
+				 <h3>Do you want to DELETE this item completely?</h3>
+			 </div>
+			 <div class="pmd-modal-action pmd-modal-bordered text-right">
+				 <button data-dismiss="modal" class="btn pmd-btn-raised btn-danger" onclick="delConfrim()">Yes,DELETE it totally</button>
+				 <button data-dismiss="modal" class="btn pmd-btn-raised btn-default" >No, keep it</button>
+			 </div>
+			 </div>
+		 </div>
+		 </div>
+
 	</body>
 	<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
 	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>

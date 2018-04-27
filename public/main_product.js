@@ -6,6 +6,10 @@ $('#save-button').on('click',function(e){
   e.preventDefault();
   $('.saveaskBtn').trigger('click');
 });
+$('#del-button').on('click',function(e){
+  e.preventDefault();
+  $('.delaskBtn').trigger('click');
+});
 //the code in "var = function(){}" will be readed by the compiler, 
 //but the code in "function(){}" will be skipped by the comiler 
 var saveConfrim = function(event){
@@ -36,7 +40,14 @@ var saveConfrim = function(event){
     updateProduct(productImg,productName,price,category,buyDate,expireDate,shoppingPlace,notification,descriptionText);
   }
 };
-
+var delConfrim = function(){
+  imageRef = firebase.storage().ref('image/'+uid).child(queryKey+'/'+oldImg);
+  //delete old img
+  imageRef.delete().then(function(){
+    firebase.database().ref('product/'+uid).child(queryKey).remove();
+    window.location.assign('/');
+  }).catch(function(error){console.log(error)})//delete
+}
 function saveProduct(productImg,productName,price,category,buyDate,expireDate,shoppingPlace,notification,descriptionText){
   //save info
   var newProduct = productRef.push();//add a new post(with a unique key)

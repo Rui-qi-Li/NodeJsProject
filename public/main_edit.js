@@ -7,7 +7,7 @@ var queryKey = (window.location.search).split('=')[1];
 var oldImg; 
 
 var main = function(){
-
+    $('#del-button').hide();
     var displayProduct = function(db){
         $('#productName').val(db.productName);
         $('.photo-label').text(db.productImg);
@@ -24,6 +24,7 @@ var main = function(){
 		console.log("no query url");
 	}
 	else{
+        $('#del-button').show();
 		console.log(queryKey);
 		firebase.auth().onAuthStateChanged(function(user){
 			if(user){
