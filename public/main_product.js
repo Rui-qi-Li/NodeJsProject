@@ -1,17 +1,15 @@
-// Get a reference to the database/storage service, which is used to create references in your database/storage bucket
-var productRef,storageRef,imageRef;
-var productImg, productName,price,category,buyDate,expireDate,shoppingPlace,notification,descriptionText;
 //image file 
 var imageFile;
+
 //click 'pubilsh' to trigger modal first
 $('#save-button').on('click',function(e){
   e.preventDefault();
   $('.saveaskBtn').trigger('click');
 });
-
+//the code in "var = function(){}" will be readed by the compiler, 
+//but the code in "function(){}" will be skipped by the comiler 
 var saveConfrim = function(event){
-
-  console.log("test onclick order");
+  console.log("test save click order");
   //get values
   productImg = $('.photo-label').text();
   productName = $('#productName').val();
@@ -28,10 +26,15 @@ var saveConfrim = function(event){
   storageRef = firebase.storage().ref('image/'+uid);
   //reference to login user's database
   productRef = firebase.database().ref('product/'+uid);
-  //save all the form when "click"
-  saveProduct(productImg,productName,price,category,buyDate,expireDate,shoppingPlace,notification,descriptionText);
+  //if new item, save all info
+  if(!queryKey){
+    saveProduct(productImg,productName,price,category,buyDate,expireDate,shoppingPlace,notification,descriptionText);
+  }
   //$('form').trigger('reset');
-
+  else{
+    //if item existed, update it.
+    updateProduct(productImg,productName,price,category,buyDate,expireDate,shoppingPlace,notification,descriptionText);
+  }
 };
 
 function saveProduct(productImg,productName,price,category,buyDate,expireDate,shoppingPlace,notification,descriptionText){
@@ -69,13 +72,53 @@ function saveProduct(productImg,productName,price,category,buyDate,expireDate,sh
   }
 }//saveProduct
 
+function updateProduct(productImg,productName,price,category,buyDate,expireDate,shoppingPlace,notification,descriptionText){
+  var updates = {
+    productImg:productImg,
+    productName:productName,
+    price:price,
+    category:category,
+    buyDate:buyDate,
+    expireDate:expireDate,
+    shoppingPlace:shoppingPlace,
+    notification:notification,
+    descriptionText:descriptionText
+  };
+  //updating data:
+  productRef.child(queryKey).update(updates);
+  //updating img:
+  imageFile = $('#upload-photo').get(0).files[0];
+  if(imageFile){
+    imageRef = storageRef.child(queryKey+'/'+oldImg);
+    //delete old img
+    imageRef.delete().then(function(){
+      //put new img
+      imageRef = storageRef.child(queryKey+'/'+productImg);
+      imageRef.put(imageFile).then(function(snapshot){
+        console.log(snapshot.downloadURL);
+      }).catch(function(error){console.log(error);})//put
+
+    }).catch(function(error){console.log(error)})//delete
+  }
+  console.log("update finish");
+}//updateProject
+
 //page behavior, only run when all blokcs finish loading
 function moreInfo(){
   $('.rightBtn').on('click',event =>{
     event.preventDefault();
-    console.log("working");
+    console.log("right button working when loading finish.");
     $(event.currentTarget).parent().next().fadeToggle();
   });
+  //don't name it as id, otherwise only ONE id will be found (id is unique)
+  $('.re-editBtn').on('click',function(event){
+    event.preventDefault();
+    //console.log(uid);OK
+    //get the non-display key for current product.
+    var thisKey = $(event.currentTarget).prev().text();
+    console.log(thisKey);
+    window.location.assign('/edit?thisKey='+thisKey);
+  })
 
   function activeBell(event){
     event.preventDefault();
@@ -150,6 +193,8 @@ var showProduct = function(){
             ):(x.category));
             div.find('#description-text').text((x.descriptionText)==0?( $('#description-text').val()
           ):(x.descriptionText));
+            //store key for each product
+            div.find('#hideKey').text(index);
 
             console.log("2nd:test async $.get order for each div");
           })

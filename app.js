@@ -44,7 +44,7 @@ return users_data.find(function(item){
 };
 
 //configuring express to use body-parser as middle-ware.
-var parseUrlencoded = bodyParser.urlencoded({extended: false});//return a middleware function
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(express.static('public'));
@@ -79,8 +79,10 @@ app.get('/security',function(req,res){
 //when route match "/home",get will find home.html in views directory
 //do not use "sendFile"-- it match absolute adress
 app.get('/edit',function(req,res){
-	res.render('edit.html');
+	var getKey = req.query.thisKey;
+	res.render('edit.html',{getKey:getKey});//for ejs file
 });
+
 app.get('/login',function(req,res){
 	res.render('login.html');
 });
@@ -110,7 +112,7 @@ app.route('/passenger')
 	.get(function(req,res){
 	res.json(passenger);
 })
-	.post(parseUrlencoded,function(req,res){
+	.post(function(req,res){
 	var temp = {};
 	temp['name'] = req.body.name;
 	temp['age'] = req.body.age;

@@ -29,6 +29,7 @@ $.when.apply($,Promise2).done(function(){
           $('.dropDownBtn').show();
           $('.loginBtn').hide();
           $('.signupBtn').hide();
+          
           var profileRef2 = firebase.database().ref('profile');
           profileRef2.on('value',function(snapshot){
             var DB2 = snapshot.child(uid).val();
@@ -66,7 +67,3 @@ function logoutPop(){
 }
 $('.longoutLink span').trigger('click');
 
-$('.re-editBtn').on('click',function(){
-    console.log(profileRef2);
-    //location.href='/edit';
-})
