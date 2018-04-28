@@ -56,8 +56,9 @@ function updateProfile(headImg,titleName,titleEmail,titleURL,titleAbout){
         alert("profile image has been saved! ");
     }
     else{
-        console.log("no profile img will store in storage");
+        console.log("no profile img will update in storage");
     }
+    $('.confirmBtn').trigger('click');
 }
 
 var showProfile = function(){
@@ -69,6 +70,7 @@ var showProfile = function(){
         console.log(DB);
         //if user has save profile already
         if(DB){
+            $('.photo-label').text(DB.headImg);
             $('#username').val(DB.titleName);
             $('#email').val(DB.titleEmail);
             $('#url').val(DB.titleURL);

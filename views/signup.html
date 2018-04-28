@@ -32,19 +32,16 @@
       <div class="alert alert-danger well-sm alertErr" style="display:none;">
         <strong>Warning!  </strong><span id="alertWord">password error here</span>.
       </div>
-
+      
       <button class="btn btn-primary btn-block" onclick="submitForm()">Register</button>
       <!-- Simple alert -->
-      <button data-target="#simple-dialog" data-toggle="modal" class="btn pmd-z-depth popBtn" type="button" style="display:none;">Alert</button>
+      <button data-target="#simple-dialog" data-toggle="modal" class="btn pmd-z-depth staticBtn" type="button" style="display:none;">Alert</button>
 
-      <div tabindex="-1" class="modal fade" id="simple-dialog" style="display: none;" aria-hidden="true">
+      <div tabindex="-1" class="modal fade" data-backdrop="static" data-keyboard="false" id="simple-dialog" style="display: none;" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-body">
-              <h3>Login successfully !</h3>
-            </div>
-            <div class="pmd-modal-action pmd-modal-bordered text-right">
-              <button data-dismiss="modal" class="btn pmd-btn-raised btn-primary" onclick="modalBtn()">Back to home</button>
+              <h3 class="text-center">Email verification processing....</h3>
             </div>
           </div>
         </div>

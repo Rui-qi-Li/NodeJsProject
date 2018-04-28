@@ -129,7 +129,7 @@ app.route('/passenger/:index')
 });
 
 app.use('/',router);//apply router
-app.listen(1377,listening);
+app.listen(3000,listening);
 function listening(){
 	console.log("server listening...")
 }

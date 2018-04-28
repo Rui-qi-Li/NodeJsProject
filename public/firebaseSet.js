@@ -15,11 +15,14 @@ var config = {
 var initApp = function(){
     firebase.auth().onAuthStateChanged(function(user){
         if(user){
-            email = user.email;
-            uid = user.uid;
-            displayName = user.displayName;
-            console.log("sign in status."+email);
-            console.log(user);
+            if(user.emailVerified){
+                email = user.email;
+                uid = user.uid;
+                console.log("sign in status."+email);
+            }
+            else
+                console.log("sign in status but without email verification.");
+            console.log("email verifity: "+user.emailVerified);
         }
         else
             console.log("sign out status.")

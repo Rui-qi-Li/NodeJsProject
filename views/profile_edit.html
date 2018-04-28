@@ -13,19 +13,17 @@
 	</head>
 	
   <body>
-	<div class = "container menuPlace">
-	
+	<div class = "container menuPlace"></div>
+	<!--Upload form-->
+	<div class = "container col-md-3 col-md-offset-1 sideBar">
+			<div class="panel panel-primary">
+					<div class="panel-heading">Setting</div>
+					<a href="/security" class="list-group-item">Security</a>
+					<a href="/profile" class="list-group-item">Profile</a>
+					<a href="#" class="list-group-item">Shopping</a>
+					<a href="#" class="list-group-item">Others</a>
+			</div>
 	</div>
-		<!--Upload form-->
-		<div class = "container col-md-3 col-md-offset-1 sideBar">
-				<div class="panel panel-primary">
-						<div class="panel-heading">Setting</div>
-						<a href="/security" class="list-group-item">Security</a>
-						<a href="/profile" class="list-group-item">Profile</a>
-						<a href="#" class="list-group-item">Shopping</a>
-						<a href="#" class="list-group-item">Others</a>
-				</div>
-		</div>
 
     <div class = "container col-md-6 editPanel" style="margin-bottom:50px;">
     	<form>
@@ -80,20 +78,31 @@
     		<div class = "col-md-6">
 			    <textarea class="form-control well" name="textarea" placeholder="Type something here..." 
 			    id="aboutme" cols="30" rows="10"></textarea>
-				</div>
-				<button class = "btn btn-default btn-block saveBtn" id="save-button">Save</button>
 			</div>
-			
-    	</form>
-    </div>
+				<button class = "btn btn-default btn-block saveBtn" id="save-button">Save</button>
+		</div>	
+	</form>
+</div>
+<!-- Simple alert -->
+<button data-target="#confirm-dialog" data-toggle="modal" class="btn pmd-z-depth confirmBtn" type="button" style="display: none;">Alert</button>
+
+<div tabindex="-1" class="modal fade" id="confirm-dialog" style="display: none;" aria-hidden="true">
+  <div class="modal-dialog">
+	<div class="modal-content">
+	  <div class="modal-body">
+		<h3 class = "text-center">Your profile has already saved!</h3>
+	  </div>
+	</div>
+  </div>
+</div>
    
-	</body>
-	<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-	<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-	<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src = "/firebaseSet.js"></script>
-	<script type="text/javascript" src = "/main_profile.js"></script>
-  <script type="text/javascript" src = "/main_menu.js"></script>
+</body>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src = "/firebaseSet.js"></script>
+<script type="text/javascript" src = "/main_profile.js"></script>
+<script type="text/javascript" src = "/main_menu.js"></script>
   <script>
   	var main = function(){
 

@@ -14,6 +14,7 @@ $('#pwd').on('focus',function(e){
     $(this).parent().find('.glyphicon').remove();
     $(this).parent().removeClass('has-error');
 })
+
 //submit form
 function submitForm(){
     //get values
@@ -21,12 +22,11 @@ function submitForm(){
     pwd = $("#pwd").val();
     //hide alert
     $('.alertErr').hide();
-    console.log("name :"+name);
-
     firebase.auth().createUserWithEmailAndPassword(name,pwd).then(function(user){
-        console.log("sucess signup!");
-        $('.popBtn').trigger('click');
-
+        console.log("sucess signup!waiting for email verifying....");
+        //sending email, callback func
+        sendEmailVer();
+    
     }).catch(function(error) {
        // Handle Errors here.
        var errorCode = error.code;
@@ -55,7 +55,7 @@ function validateForm(){
     console.log("name :"+name);
 
     firebase.auth().signInWithEmailAndPassword(name, pwd).then(function(user){
-        console.log("sucess login!"+user.email);
+        console.log("sucess login! "+user.email);
         $('.popBtn').trigger('click');
     }).catch(function(error){
          // Handle Errors here.
@@ -65,15 +65,19 @@ function validateForm(){
           $('#alertWord').text(errorMessage);
           $('.alertErr').show();
     });
-
 }
 
-//save users to firebase
-function saveUsers(name,password){
-    var newUserRef = userRef.push();
-    newUserRef.set({
-        name:name,
-        password:password
+function sendEmailVer(){
+    var actionCodeSettings = {
+    url: 'http://localhost:3000/?email=' + firebase.auth().currentUser.email
+  };
+    firebase.auth().currentUser.sendEmailVerification(actionCodeSettings).then(function() {//callback func
+    //without preventDefault, send will reload the whole page
+        console.log("email is sent to user");
+        $('.staticBtn').trigger('click');
+    }).catch(function(error) {
+        console.log(error.message);
     });
 }
+
 

@@ -142,7 +142,7 @@ function moreInfo(){
 
 var showUserTitle = function(){
   firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
+    if (user && user.emailVerified) {
       console.log("testing user title showing");
       $('.userTitle').show();
       //load user image and infomation
@@ -153,6 +153,7 @@ var showUserTitle = function(){
           //update title info
           $('.emailTitle').next().text(DB3.titleEmail);
           $('.urlTitle').next().text(DB3.titleURL);
+          $('.nameTitle').text(DB3.titleName);
           //update title img
           var headRef3 = firebase.storage().ref('image_profile/'+uid).child(DB3.headImg);
           headRef3.getDownloadURL().then(function(url){

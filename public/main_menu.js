@@ -23,7 +23,7 @@
 );//end promise push
 $.when.apply($,Promise2).done(function(){
     firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
+        if (user && user.emailVerified) {
           $('.headBtn').show();
           $('.newBtn').show();
           $('.dropDownBtn').show();
