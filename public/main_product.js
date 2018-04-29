@@ -114,6 +114,36 @@ function updateProduct(productImg,productName,price,category,buyDate,expireDate,
   console.log("update finish");
 }//updateProject
 
+//create addDays()
+//test mins
+Date.prototype.addDays = function(mins) {
+  var date = new Date(this.valueOf());
+  date.setMinutes(date.getMinutes() + mins)
+  //date.setDate(date.getDate() + days);
+  return date;
+}
+var date = new Date();
+console.log(date.addDays(1));
+
+$('.notify').on('click',function(e){
+  e.preventDefault();
+  var selectedDate = $('#notification option:selected').val();
+  var selectedWord = $('#notification option:selected').text();
+  console.log( selectedDate);
+
+  if(selectedDate == "60"){
+    $('.emailPopBtn').trigger('click');
+    $('#specifiedDate').text(selectedWord);
+    setTimeout(function(){
+      $.post('/edit',{useremail:email,content:selectedWord},function(res){
+        console.log(res);
+      })
+    },6000)//setTimeout
+  }//if
+  else{
+    alert('please choose 1 minute for demo :)')
+  }
+})
 //page behavior, only run when all blokcs finish loading
 function moreInfo(){
   $('.rightBtn').on('click',event =>{

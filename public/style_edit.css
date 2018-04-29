@@ -65,6 +65,6 @@ option, option[select]{
 textarea::-webkit-input-placeholder {
     color: white;
 }
-.btn-primary,.btn-danger, .btn-default{
+.btn-primary,.btn-danger, .btn-default, .btn-warning{
   border-radius: 20px;
 }

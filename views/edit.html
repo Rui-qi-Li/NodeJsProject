@@ -138,11 +138,15 @@
 				<div class="col-md-10 saveTitle">
 					<h4><strong>Notification</strong></h4>
 					<select class="form-control"id="notification">
-						<option selected>Expire before 1 month</option>
-						<option>Expire before 1 week</option>
-						<option>Expire before 2 weeks</option>
-						<option>Expire before 3 weeks</option>
+						<option selected value="1">1 month</option>
+						<option value="3">3 months</option>
+						<option value="6">6 months</option>
+						<option value="9">9 months</option>
+						<option value="12">12 months</option>
+						<option value="60">1 minute</option>
+						<option value="30">30 seconds</option>
 					</select>
+					<button class="btn btn-warning notify" style="margin-top:20px;">Set now!</button>
 				</div>
 			</div><!--end row-->
 			
@@ -151,39 +155,51 @@
 		<button class = "btn btn-primary btn-block well-sm" style="margin-bottom:50px;"id="save-button">Publish</button>
     
 	</form><!--end newPanel-->	
-	  <!-- Simple alert -->
-	  <button data-target="#save-dialog" data-toggle="modal" class="btn pmd-z-depth saveaskBtn" type="button" style="display: none;">Alert</button>
+	<!-- Simple alert -->
+	<button data-target="#save-dialog" data-toggle="modal" class="btn pmd-z-depth saveaskBtn" type="button" style="display: none;">Alert</button>
 
-	  <div tabindex="-1" class="modal fade" id="save-dialog" style="display: none;" aria-hidden="true">
-		<div class="modal-dialog">
-		  <div class="modal-content">
-			<div class="modal-body">
-			  <h3>Do you want to publish this item at once?</h3>
-			</div>
-			<div class="pmd-modal-action pmd-modal-bordered text-right">
-			  <button data-dismiss="modal" class="btn pmd-btn-raised btn-primary" onclick="saveConfrim()">Yes,publish it now</button>
-			  <button data-dismiss="modal" class="btn pmd-btn-raised btn-default" >No, back to page</button>
-			</div>
-		  </div>
+	<div tabindex="-1" class="modal fade" id="save-dialog" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+		<div class="modal-body">
+			<h3>Do you want to publish this item at once?</h3>
 		</div>
-	  </div>
+		<div class="pmd-modal-action pmd-modal-bordered text-right">
+			<button data-dismiss="modal" class="btn pmd-btn-raised btn-primary" onclick="saveConfrim()">Yes,publish it now</button>
+			<button data-dismiss="modal" class="btn pmd-btn-raised btn-default" >No, back to page</button>
+		</div>
+		</div>
+	</div>
+	</div>
 	 
-		 <!-- Simple alert -->
-		 <button data-target="#del-dialog" data-toggle="modal" class="btn pmd-z-depth delaskBtn" type="button" style="display: none;">Alert</button>
+	<!-- Simple alert -->
+	<button data-target="#del-dialog" data-toggle="modal" class="btn pmd-z-depth delaskBtn" type="button" style="display: none;">Alert</button>
 
-		 <div tabindex="-1" class="modal fade" id="del-dialog" style="display: none;" aria-hidden="true">
-		 <div class="modal-dialog">
-			 <div class="modal-content">
-			 <div class="modal-body">
-				 <h3>Do you want to DELETE this item completely?</h3>
-			 </div>
-			 <div class="pmd-modal-action pmd-modal-bordered text-right">
-				 <button data-dismiss="modal" class="btn pmd-btn-raised btn-danger" onclick="delConfrim()">Yes,DELETE it totally</button>
-				 <button data-dismiss="modal" class="btn pmd-btn-raised btn-default" >No, keep it</button>
-			 </div>
-			 </div>
-		 </div>
-		 </div>
+	<div tabindex="-1" class="modal fade" id="del-dialog" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+		<div class="modal-body">
+			<h3>Do you want to DELETE this item completely?</h3>
+		</div>
+		<div class="pmd-modal-action pmd-modal-bordered text-right">
+			<button data-dismiss="modal" class="btn pmd-btn-raised btn-danger" onclick="delConfrim()">Yes,DELETE it totally</button>
+			<button data-dismiss="modal" class="btn pmd-btn-raised btn-default" >No, keep it</button>
+		</div>
+		</div>
+	</div>
+	</div>
+	<!-- Simple alert -->
+	<button data-target="#email-dialog" data-toggle="modal" class="btn pmd-z-depth emailPopBtn" type="button" style="display: none;">Alert</button>
+
+	<div tabindex="-1" class="modal fade" id="email-dialog" style="display: none;" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<h3 class="text-center" >Now, a email will notify you after <span id="specifiedDate"></span></h3>
+			</div>
+		</div>
+	</div>
+	</div>
 
 	</body>
 	<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>

@@ -1,5 +1,6 @@
 //test1, using require to import the object
 var users_data = require('./test1_users').users_data;
+var mailer = require('nodemailer');
 var path = require('path');
 var express = require('express');
 var app = express();
@@ -29,6 +30,31 @@ var config = {
   storageBucket: "test-649ca.appspot.com",
 };
 firebase.initializeApp(config);
+//transporter setting
+var transporter = mailer.createTransport({
+    service: "gmail",
+    auth: {
+      user: 'cozmetproject@gmail.com',
+	  pass: 'Cozmetemail'
+    }
+});
+
+function sendEmail(useremail,content){
+	var mailOptions = {
+	from: 'cozmetproject@gmail.com', // sender address
+	to: useremail, // list of receivers
+	subject: 'Your product will be expire in '+content+' !', // Subject line
+	html: '<p>Do not forget to use them !</p>'// plain text body
+	};
+
+	transporter.sendMail(mailOptions, function (err, info) {
+	   if(err)
+	      console.log(err)
+	   else
+	      console.log('Message sent: ' + info.response);
+	});
+}
+
 
 //set the view engine to ejs using html
 app.set('views', __dirname+'/views');
@@ -68,6 +94,7 @@ app.get('/index', function (req, res) {
 app.get('/signup', function (req, res) {
 	//redirect
 	//res.redirect([stauts],path.join(__dirname, 'login.html'))
+	sendEmail();
     res.render('signup.html');
 });
 app.get('/profile',function(req,res){
@@ -82,6 +109,12 @@ app.get('/edit',function(req,res){
 	var getKey = req.query.thisKey;
 	res.render('edit.html',{getKey:getKey});//for ejs file
 });
+app.post('/edit',function(req,res){
+	var useremail = req.body.useremail;
+	var content = req.body.content;
+	sendEmail(useremail,content);
+	res.send(useremail+"sending...");
+})
 
 app.get('/login',function(req,res){
 	res.render('login.html');
