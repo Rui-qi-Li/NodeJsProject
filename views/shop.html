@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>Cosmetics_shop</title>
+        <link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300' rel='stylesheet' type='text/css'>
+        <link href="https://fonts.googleapis.com/css?family=Oswald:300,700|Varela+Round" rel="stylesheet">
+        <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css"> 
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css">
+       
+        <link rel="stylesheet" type="text/css" href="/style_menu2.css">
+        <link rel="stylesheet" type="text/css" href="/style_footer.css">
+        <link rel="stylesheet" type="text/css" href="/style_shop.css">
+    </head>
+<body>
+    <div class = "container menuPlace"></div>
+    <section id="shop_section">
+            <div class="container">
+              <!-- Contains form user uses to find details on product -->
+        
+              <div id="grid_shop2">
+        
+                <div>
+                  <div id="inner-grid_thumbs">
+                    <div id="large_thumbs0">
+        
+                      <img id="large_thumbs0_img" src="" onclick="myFunction(this);">
+        
+                    </div>
+                    <div id="large_thumbs1">
+                      <img id="large_thumbs1_img" src="" onclick="myFunction(this);">
+                    </div>
+                    <div id="large_thumbs2">
+                      <img id="large_thumbs2_img" src="" onclick="myFunction(this);">
+                    </div>
+        
+                    <div id="large_thumbs">
+                      <img id="large_thumbs3_img" src="" onclick="myFunction(this);">
+                    </div>
+                  </div>
+                </div>
+                <div id="large_image_frame">
+        
+                  <div>
+                    <div>
+                      <div id="large_image">
+                        <div>
+                          <div onclick="this.parentElement.style.display='large_thumbs'">
+        
+                          </div>
+        
+                          <div>
+                            <input type="checkbox" id="zoomCheck">
+                            <label for="zoomCheck">
+                                <img id="img-expandedImg">
+                              </label>
+                          </div>
+        
+                          <div id="imgtext"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+        
+                </div>
+        
+                <div>
+                  <button class="tablink" onclick="shop('Details', this, '#fffbfbff')" id="defaultOpen">Details</button>
+                  <button class="tablink" onclick="shop('Purchase', this, '#fffbfbff')">Purchase</button>
+                  <button class="tablink" onclick="shop('Reviews', this, '#fffbfbff')">Reviews</button>
+                  <button class="tablink" onclick="shop('Map', this, '#fffbfbff')">Find Stores</button>
+        
+                  <div id="Details" class="tabcontent">
+        
+                    <div id="details">
+                      <div id="Tit">Title:</div>
+                      <div id="titleName"></div>
+                      <div id="Descr">Description:</div>
+                      <div class="scrollbar" id="description"></div>
+                      <div id="Ingred">Ingredients:</div>
+                      <div class="scrollbar" id="ingredients"></div>
+                      <div id="P_S">
+                        <div id="lower_details">
+                          <div id="volume">
+                            Volume:
+                          </div>
+                          <div id="price">
+                            Price:
+        
+                          </div>
+                          <div id="user_rating">
+                            User Rating:
+                            <!-- <img id="rating_stars0" src="../shop_page_assets/images/stars_blank.png"> -->
+                            <img id="rating_stars1" src="../shop_page_assets/images/stars_one.png">
+                            <img id="rating_stars2" src="../shop_page_assets/images/stars_two.png">
+                            <img id="rating_stars3" src="../shop_page_assets/images/stars_three.png">
+                            <img id="rating_stars4" src="../shop_page_assets/images/stars_four.png">
+                            <img id="rating_stars5" src="../shop_page_assets/images/stars_five.png">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div id="Purchase" class="tabcontent">
+                    <h3>Purchase</h3>
+                    <p>This is where the user buys a product</p>
+                  </div>
+        
+                  <div id="Reviews" class="tabcontent">
+                    <div class="scrollbar" id="reviews">
+                      <div  id="review-outer-grid">
+        
+                        <div id="review-inner-grid">
+                          <div>star rating</div>
+                          <div class="timestamp">name and timestamp</div>
+                          <div class="headline">headline</div>
+                          <div class="scrollbar" id="comment1">comment</div>
+                          <div class="report">report</div>
+                          <div class="thumbs">
+                            <input id="like" type="image" src="../shop_page_assets/images/thumb_up.png" />
+                            <input id="dislike" type="image" src="../shop_page_assets/images/thumb_down.png" />
+                          </div>
+                          <div class="newComment">
+                            <button>New Comment</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+        
+                  <div id="Map" class="tabcontent">
+                    <div id="geosearch">
+        
+                      <div id="map"></div>
+                      <input id="mapSearch" class="controls" type="text" placeholder="Search here">
+                      <button id="button" onclick="searchWord();">Search</button>
+                      <!-- <div id="map"></div> -->
+        
+                    </div>
+                  </div>
+        
+                </div>
+        
+                <div id="box">
+        
+                  <section id="examples" class="snap-scrolling-example">
+        
+                    <!-- content -->
+                    <div id="content-1" class="content horizontal-images">
+                      <ul>
+                        <li><img id="key1" onclick="getKey0(); getProductData(); myFunction(this);" src="../shop_page_assets/images/Johnson1.jpg" /></li>
+                        <li><img id="key2" onclick="getKey1(); getProductData(); myFunction(this);" src="../shop_page_assets/images/BabyShampoo.jpg" /></li>
+                        <li><img id="key3" onclick="getKey2(); getProductData(); myFunction(this);" src="../shop_page_assets/images/bedtime_shampoo.png" /></li>
+                        <li><img id="key4" onclick="getKey3(); getProductData(); myFunction(this);" src="../shop_page_assets/images/caffeine_shampoo1.png" /></li>
+                        <li><img id="key5" onclick="getKey4(); getProductData(); myFunction(this);" src="../shop_page_assets/images/elvive_colour_protect_shampoo.png" /></li>
+                        <li><img src="../shop_page_assets/images/Alpecin.png" /></li>
+                        <li><img src="../shop_page_assets/images/garnier_blend.png" /></li>
+                        <li><img src="../shop_page_assets/images/nexxus.png" /></li>
+                        <li><img src="../shop_page_assets/images/Nivea_lotion.jpg" /></li>
+                        <li><img src="../shop_page_assets/images/pantene.png" /></li>
+                        <li><img src="../shop_page_assets/images/pure_colour.png" /></li>
+                        <li><img src="../shop_page_assets/images/silver.png" /></li>
+                        <li><img src="../shop_page_assets/images/TGel.png" /></li>
+                        <li><img src="../shop_page_assets/images/loreal_kids.png" /></li>
+                        <li><img src="../shop_page_assets/images/garnier_hydrating.png" /></li>
+                        <li><img src="../shop_page_assets/images/elvive_oil.png" /></li>
+                        <li><img src="../shop_page_assets/images/boss_shampoo.png" /></li>
+                        <li><img src="../shop_page_assets/images/alberto_balsam.png" /></li>
+                        <li><img src="../shop_page_assets/images/carrots.png" /></li>
+                        <li><img src="../shop_page_assets/images/coconut_milk.png" /></li>>
+                        <li><img src="../shop_page_assets/images/simple.png" /></li>
+                        <li><img src="../shop_page_assets/images/Anti-hair-fall_shampoo.jpg" /></li>
+                        <li><img src="../shop_page_assets/images/Himalaya_skin_cream.jpg" /></li>
+                      </ul>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </section>
+    <div class="footerPlace">
+
+</body>
+<script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src = "/firebaseSet.js"></script>
+<script type="text/javascript" src = "/main_shop.js"></script>
+<script type="text/javascript" src = "/main_menu.js"></script>
+<script type="text/javascript" src = "/main_footer.js"></script>
+</html>

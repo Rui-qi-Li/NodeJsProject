@@ -109,6 +109,9 @@ app.get('/edit',function(req,res){
 	var getKey = req.query.thisKey;
 	res.render('edit.html',{getKey:getKey});//for ejs file
 });
+app.get('/shop',function(req,res){
+	res.render('shop.html');
+})
 app.post('/edit',function(req,res){
 	var useremail = req.body.useremail;
 	var content = req.body.content;

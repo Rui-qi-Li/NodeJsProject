@@ -1,4 +1,4 @@
-/*$.get('footer.html',function(res){
+$.get('footer.html',function(res){
     $('.footerPlace').html(res);
 })
-*/
+

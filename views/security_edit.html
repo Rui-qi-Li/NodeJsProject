@@ -10,22 +10,23 @@
      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css">
 	<link rel="stylesheet" type="text/css" href="/style_security.css">
     <link rel="stylesheet" type="text/css" href="/style_menu2.css">
+    <link rel="stylesheet" type="text/css" href="/style_footer.css">
 	</head>
 	
   <body>
-	<div class = "menuPlace"></div>
+	<div class = "container menuPlace"></div>
 		
-		<div class = "col-md-3 col-md-offset-1 sideBar">
-            <div class="panel panel-primary">
-                <div class="panel-heading">Setting</div>
-                <a href="/security" class="list-group-item">Security</a>
-                <a href="/profile" class="list-group-item">Profile</a>
-                <a href="#" class="list-group-item">Shopping</a>
-                <a href="#" class="list-group-item">Others</a>
-            </div>
+    <div class = "container col-md-3 col-md-offset-1 sideBar">
+        <div class="panel panel-primary">
+            <div class="panel-heading">Setting</div>
+            <a href="/security" class="list-group-item">Security</a>
+            <a href="/profile" class="list-group-item">Profile</a>
+            <a href="/shop" class="list-group-item">Shop</a>
+            <a href="#" class="list-group-item">Others</a>
         </div>
-        
-        <div class = "col-md-6 editPanel">
+    </div>
+    
+    <div class = "container col-md-6 editPanel">
         <!--Upload form-->
     	<form>
             <div class = "row well-lg">
@@ -63,7 +64,11 @@
             <div class = "row well-lg">
                  <button class = "btn btn-default btn-block securityBtn" id="save-button">Save</button>
             </div>    
-    	</form><!--end form-->
+        </form><!--end form-->
+    </div>
+
+    <div class="footerPlace">
+
     </div>
    
 	</body>
@@ -73,6 +78,7 @@
     <script type="text/javascript" src = "/firebaseSet.js"></script>
 	<script type="text/javascript" src = "/main_security.js"></script>
     <script type="text/javascript" src = "/main_menu.js"></script>
+    <script type="text/javascript" src = "/main_footer.js"></script>
     <script>
   	var main = function(){
 
