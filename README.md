@@ -2,7 +2,7 @@
 
 *This is a project for CS353C Software Design module*
 
----
+
 
 This is a reminder application website built on a remote server and run on **Node.js** for the server side language. **Express** is required to handle the requests from browsers, **Google Firebase** is used for the real-time database and authentication system, Gppgle Cloud is used for the storage for uploaded files and images. **jQuery** library is embedded to process the browser's behaviour, templates and Ajax function. Bootstrap and Propeller are imported as front-end frameworks to provide UI design supprot. 
 
